@@ -5,45 +5,22 @@ import aiohttp
 import aiofiles
 import asyncio
 from tqdm.asyncio import tqdm
-import logging
+from loguru import logger
+from utils.text_operations import sanitize_filename
 import os
-from datetime import datetime
-
-
-log_directory = "logs/"
-
-log_filename = datetime.now().strftime('%Y-%m-%d_%H-%M-%S') + '.log'
-log_filepath = os.path.join(log_directory, log_filename)
-
-# Создание директории для логов
-os.makedirs(log_directory, exist_ok=True)
-
-# Настройка логирования
-# Имя лог-файла на основе времени и даты запуска программы
-logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(message)s', datefmt='%Y-%m-%d %H:%M:%S', handlers=[
-    logging.FileHandler(log_filepath, encoding='utf-8'),
-    logging.StreamHandler()
-])
-
-
-# Вывод сообщения в консоль через логгер
-def log_message(message):
-    logging.info(message)
-    # current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    # log_message()(f"[{current_time}] {message}")
 
 
 async def download_file(sem, session: aiohttp.ClientSession, url: str, output_file):
     async with sem:
         try:
             if not os.path.exists(output_file):
-                log_message(f"связь с космосом {url}")
+                logger.info(f"связь с космосом {url}")
                 async with session.get(url) as response:
                     if response.status == 200:
                         async with aiofiles.open(output_file, "wb") as f:
                             await f.write(await response.read())
         except Exception as e:
-            log_message(e)
+            logger.error(e)
 
 
 async def download_photos(base_directory, df, column):
@@ -53,12 +30,12 @@ async def download_photos(base_directory, df, column):
         unique_links = df[column].unique()
         for url in unique_links:
             if pd.notnull(url) and url.strip():  # Проверка наличия URL и его содержимого
-                log_message(f"{url}")
-                basename = os.path.basename(url)
+                logger.debug(f"{url}")
+                basename = sanitize_filename(os.path.basename(url))
                 output_file = os.path.join(base_directory, basename)
                 futures.append(download_file(sem, session, url, output_file))
         else:
-            log_message(f"[-] Нет ссылки на {column} в ячейке {url}")
+            logger.error(f"[-] Нет ссылки на {column} в ячейке {url}")
 
         for future in tqdm(asyncio.as_completed(futures), total=len(futures)):
             # await asyncio.sleep(0.1)
@@ -66,9 +43,9 @@ async def download_photos(base_directory, df, column):
 
 
 if __name__ == '__main__':
-    df = pd.read_csv("output/cgsubCeramicCapacitors/merged.csv")
-    directory = "output/cgsubCeramicCapacitors/Datasheets/"
+    df = pd.read_csv("../output/thick-film-resistors.csv")
+    directory = "../output/Datasheets/"
 
     if not os.path.exists(directory):
         os.makedirs(directory)
-    asyncio.run(download_photos(directory, df, "datasheets"))
+    asyncio.run(download_photos(directory, df, "Datasheet Link"))
