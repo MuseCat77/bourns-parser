@@ -1,0 +1,11 @@
+selenium
+pandas~=2.2.2
+openpyxl
+requests~=2.32.3
+PyMuPDF
+aiohttp~=3.9.5
+aiofiles~=23.2.1
+asyncio~=3.4.3
+tqdm~=4.66.4
+loguru~=0.7.2
+beautifulsoup4~=4.12.3
