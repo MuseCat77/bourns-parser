@@ -46,3 +46,11 @@ def extract_version(filename):
 def extract_base_datasheet_filename(filename):
     # Извлечение базового имени файла даташита без версии
     return re.sub(r'V_\d+$', '', filename)
+
+
+def sanitize_filename(filename: str):
+    return filename.split("?")[0]
+
+
+if __name__ == '__main__':
+    print(sanitize_filename("chp-a.pdf?sfvrsn=bd6d41f6_8"))
