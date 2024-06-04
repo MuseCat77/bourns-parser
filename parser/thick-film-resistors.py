@@ -66,7 +66,7 @@ def parse_table(table):
 
 
 @logger.catch
-def parse_page(url: str, output_directory: str):
+def parse_page(category: str, url: str, output_directory: str):
     page_content = ""
     if "http" not in url:
         logger.info(f"Файл уже скачан, открываем {url}")
@@ -83,7 +83,7 @@ def parse_page(url: str, output_directory: str):
             logger.info("Начинаем парсинг")
             # Парсинг HTML с помощью BeautifulSoup
             page_content = response.text
-            output_file = os.path.join(output_directory, 'page_content.html')
+            output_file = os.path.join(output_directory, f'{category}.html')
             with open(output_file, 'w', encoding='utf-8') as file:
                 file.write(page_content)
         else:
@@ -104,19 +104,22 @@ def parse_page(url: str, output_directory: str):
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
 
-    output_file = os.path.join(output_directory, "thick-film-resistors.csv")
+    output_file = os.path.join(output_directory, f"{category}.csv")
     # Сохранение DataFrame в CSV файл
     df.to_csv(output_file, index=False, encoding='utf-8', lineterminator='\n')
 
 
 if __name__ == '__main__':
-    if os.path.exists("../output/page_content.html"):
+    category = "thick-film-resistors"
+    if os.path.exists(f"../output/{category}.html"):
         parse_page(
-            "../output/page_content.html",
+            category,
+            f"../output/{category}.html",
             "../output/"
         )
     else:
         parse_page(
-            "https://www.bourns.com/products/resistors/thick-film-chip-resistors",
+            category,
+            f"https://www.bourns.com/products/resistors/{category}",
             "../output/"
         )
