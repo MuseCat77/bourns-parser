@@ -51,8 +51,8 @@ def parse_table(table):
             if idx == headers.index('Data Sheet'):
                 datasheet_links.append(td.find('a')['href'] if td.find('a') else '')
 
-            # Если ячейка "Size", сохраняем ссылку из нее в отдельный массив
-            elif idx == headers.index('Size'):
+            # Если ячейка "Series", сохраняем ссылку на продукт из нее в отдельный массив
+            elif idx == headers.index('Series'):
                 product_links.append(td.find('a')['href'] if td.find('a') else '')
 
         rows.append(row)

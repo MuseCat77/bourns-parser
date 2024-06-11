@@ -23,7 +23,7 @@ async def download_file(sem, session: aiohttp.ClientSession, url: str, output_fi
             logger.error(e)
 
 
-async def download_photos(base_directory, df, column):
+async def download_files(base_directory, df, column):
     sem = asyncio.Semaphore(10)
     async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(limit=50)) as session:
         futures = []
@@ -42,10 +42,24 @@ async def download_photos(base_directory, df, column):
             await future
 
 
-if __name__ == '__main__':
-    df = pd.read_csv("../output/thick-film-resistors.csv")
-    directory = "../output/Datasheets/"
+def download_datasheets(category):
+    df = pd.read_csv(f"../output/{category}/{category}.csv")
+    directory = f"../output/{category}/Datasheets/"
 
     if not os.path.exists(directory):
         os.makedirs(directory)
-    asyncio.run(download_photos(directory, df, "Datasheet Link"))
+    asyncio.run(download_files(directory, df, "Datasheet Link"))
+
+
+def download_images(category):
+    df = pd.read_csv(f"../output/{category}/{category}.csv")
+    directory = f"../output/{category}/Images/"
+
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    asyncio.run(download_files(directory, df, "Photo"))
+
+
+if __name__ == '__main__':
+    download_images('thick-film-chip-resistors')
+

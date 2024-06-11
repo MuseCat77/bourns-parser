@@ -137,7 +137,7 @@ def get_names(file_path):
 
 if __name__ == "__main__":
     # Пример использования
-    file_path = '../output/thick-film-resistors.csv'
+    file_path = '../output/thick-film-chip-resistors/thick-film-resistors.csv'
     names_array = get_names(file_path)
     logger.debug(names_array)
     output_directory = '../output/partnumbers/'
