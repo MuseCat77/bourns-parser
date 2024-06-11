@@ -1,0 +1,1 @@
+WEBDRIVER_PATH = "D:\SOFT\chrome-win\chrome.exe"
