@@ -80,6 +80,7 @@ def parse_table(table):
     # Получение заголовков таблицы
     for th in table.find('thead').find_all('th'):
         headers.append(th.text.strip())
+    logger.debug(headers)
 
     # Получение строк таблицы
     for tr in table.find('tbody').find_all('tr'):
@@ -95,8 +96,7 @@ def parse_table(table):
                 cell_content = ""
                 mds_links = td.find_all('a')
                 for link in mds_links:
-                    cell_content += link['href'] + " "
-                    logger.debug(cell_content)
+                    cell_content += link['href'] + "\n"
 
             # Если ячейка "Design Files", сохраняем ссылку из нее, добавив домен
             elif idx == headers.index('Design Files'):
@@ -127,13 +127,15 @@ def parse_table(table):
 
             # Если ячейка "Size", сохраняем ссылку из нее в отдельный массив
             try:
-                if idx == headers.index('Size'):
-                    if td.find('a'):
-                        product_links.append(td.find('a')['href'] if td.find('a') else '')
-            except ValueError:
                 if idx == headers.index('Series'):
                     if td.find('a'):
                         product_links.append(td.find('a')['href'] if td.find('a') else '')
+            except ValueError:
+                if idx == headers.index('Size'):
+                    if td.find('a'):
+                        product_links.append(td.find('a')['href'] if td.find('a') else '')
+                    else:
+                        raise ValueError
         logger.debug(row)
         rows.append(row)
     headers[headers.index("Data Sheet")] = "Name"

@@ -29,7 +29,7 @@ def parse_page(category: str, url: str, output_directory: str):
                 file.write(page_content)
         else:
             logger.error(f"Failed to retrieve the webpage. Status code: {response.status_code}")
-
+    page_content = page_content.replace(';', ',').replace("<br>", " ")
     soup = BeautifulSoup(page_content, 'html.parser')
 
     # Нахождение таблицы
@@ -39,8 +39,11 @@ def parse_page(category: str, url: str, output_directory: str):
         logger.debug(rows)
         # Создание DataFrame с помощью pandas
         df = pd.DataFrame(rows, columns=headers)
-        df['Datasheet Link'] = datasheet_links
-        df['Product Link'] = product_links
+        nothing_burger = []
+        if not datasheet_links == nothing_burger:
+            df['Datasheet Link'] = datasheet_links
+        if not product_links == nothing_burger:
+            df['Product Link'] = product_links
 
         if not os.path.exists(output_directory):
             os.makedirs(output_directory)
@@ -76,5 +79,5 @@ def init_parser(category):
 
 
 if __name__ == '__main__':
-    init_parser("metal-strip-chip-resistors")
+    init_parser("high-power-shunts")
     # init_parser("thick-film-chip-resistors")

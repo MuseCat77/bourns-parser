@@ -1,0 +1,43 @@
+Series,Size,Features,Name,Photo,Resistance Range,Tolerances,Temperature Coefficient,Power per Resistor,MDS,Design Files,Engineering,Buy Now,Datasheet Link,Product Link
+CAT10-J,4 x 0402,concave,,https://www.bourns.com/images/products/resistive-products/cat10_part_photo.jpg?sfvrsn=2e4483ec_2,10 Ω to 1 MΩ,±5 %,±200 ppm/°C,0.0625 W,"https://www.bourns.com/docs/Product-MDS/cat10_j4_mds.pdf?sfvrsn=9d9f2408_0
+",https://www.bourns.com/resources/design-tools/engineering-files-list?folder=CAT10,https://bourns.componentsearchengine.com/entry_u_newDesign.php?mna=Bourns&mpn=CAT10-J&pna=Bourns&vrq=1&fmt=zip&o3=0&logo=&lang=en-US&epm=0,https://www.bourns.com/inventory-search-results?PARTS=CAT10-J,https://www.bourns.com/docs/product-datasheets/cat10.pdf?sfvrsn=37773ee0_7,https://www.bourns.com/products/resistors/chip-resistor-arrays/product/CAT10-J
+CAT10A,2 x 04024 x 0402,"concave
+AEC-Q200",,https://www.bourns.com/images/products/resistive-products/cat10_part.jpg?sfvrsn=478e48f6_2,10 Ω to 1 MΩ,±5 %,±300 ppm/°C,0.063 W,"https://www.bourns.com/docs/product-mds/cat10a-j2lf_mds.pdf?sfvrsn=378f48f6_4
+https://www.bourns.com/docs/product-mds/cat10a-j4lf_mds.pdf?sfvrsn=5f8f48f6_4
+",https://www.bourns.com/resources/design-tools/engineering-files-list?folder=CAT10A-LF,https://bourns.componentsearchengine.com/entry_u_newDesign.php?mna=Bourns&mpn=CAT10A&pna=Bourns&vrq=1&fmt=zip&o3=0&logo=&lang=en-US&epm=0,https://www.bourns.com/inventory-search-results?PARTS=CAT10A,https://www.bourns.com/docs/product-datasheets/cat10a-lf.pdf?sfvrsn=e18c48f6_5,https://www.bourns.com/products/resistors/chip-resistor-arrays/product/CAT10A
+CAT16,4 x 0603,concave,,https://www.bourns.com/images/products/resistive-products/cat-103main_part.jpg?sfvrsn=ad3b09f1_4,10 Ω to 1 MΩ,"±1 %, ±5 %",±200 ppm/°C,0.0625 W,"https://www.bourns.com/docs/Product-MDS/cat16_j2_mds.pdf?sfvrsn=4b62c91c_0
+https://www.bourns.com/docs/Product-MDS/cat16_j4_mds.pdf?sfvrsn=75830eba_0
+https://www.bourns.com/docs/product-mds/cat16-x2.pdf?sfvrsn=cf7c75f6_2
+https://www.bourns.com/docs/product-mds/cat16-x4.pdf?sfvrsn=d57c75f6_2
+",https://www.bourns.com/resources/design-tools/engineering-files-list?folder=CATCAY,https://bourns.componentsearchengine.com/entry_u_newDesign.php?mna=Bourns&mpn=CAT16&pna=Bourns&vrq=1&fmt=zip&o3=0&logo=&lang=en-US&epm=0,https://www.bourns.com/inventory-search-results?PARTS=CAT16,https://www.bourns.com/docs/product-datasheets/catcay.pdf?sfvrsn=eae9f7ea_24,https://www.bourns.com/products/resistors/chip-resistor-arrays/product/CAT16
+CAT16A,4 x 0603,"concave
+AEC-Q200",,https://www.bourns.com/images/products/resistive-products/cat10_part.jpg?sfvrsn=478e48f6_2,10 Ω to 1 MΩ,"±1 %,±5 %","±200 ppm/°C,±400 ppm/°C",0.063 W,"https://www.bourns.com/docs/product-mds/cat16a-4lf_mds.pdf?sfvrsn=3c8f48f6_4
+",https://www.bourns.com/resources/design-tools/engineering-files-list?folder=CAT16A-LF,https://bourns.componentsearchengine.com/entry_u_newDesign.php?mna=Bourns&mpn=CAT16A&pna=Bourns&vrq=1&fmt=zip&o3=0&logo=&lang=en-US&epm=0,https://www.bourns.com/inventory-search-results?PARTS=CAT16A,https://www.bourns.com/docs/product-datasheets/cat16a-lf.pdf?sfvrsn=f78c48f6_4,https://www.bourns.com/products/resistors/chip-resistor-arrays/product/CAT16A
+CAY06-J-AS,2 x 0201,"convex
+sulfur resistant",,https://www.bourns.com/images/products/resistive-products/cay06-j4as_part.jpg?sfvrsn=d2a56bf6_10,10 Ω to 1 MΩ,±5 %,±200 ppm/°C,0.031 W,"https://www.bourns.com/docs/Product-MDS/cay06-j2as_mds.pdf?sfvrsn=36a76bf6_4
+https://www.bourns.com/docs/Product-MDS/cay06-j4as_mds.pdf?sfvrsn=8a76bf6_4
+",https://www.bourns.com/resources/design-tools/engineering-files-list?folder=CAY06-AS,https://bourns.componentsearchengine.com/entry_u_newDesign.php?mna=Bourns&mpn=CAY06-J-AS&pna=Bourns&vrq=1&fmt=zip&o3=0&logo=&lang=en-US&epm=0,https://www.bourns.com/inventory-search-results?PARTS=CAY06-J-AS,https://www.bourns.com/docs/product-datasheets/cay06-as.pdf?sfvrsn=d7a46bf6_3,https://www.bourns.com/products/resistors/chip-resistor-arrays/product/CAY06-J-AS
+CAY10-J,2 x 04024 x 0402,convex,,https://www.bourns.com/images/Products/resistive-products/cay_10_part.gif?sfvrsn=e7febf76_0,3 Ω to 1 MΩ,±5 %,"±500 ppm/°C, ±200 ppm/°C",0.0625 W,"https://www.bourns.com/docs/Product-MDS/cay10_j2_mds.pdf?sfvrsn=c55faca0_0
+https://www.bourns.com/docs/Product-MDS/cay10_j4_mds.pdf?sfvrsn=4256c6e8_0
+",https://www.bourns.com/resources/design-tools/engineering-files-list?folder=CAY10-J,https://bourns.componentsearchengine.com/entry_u_newDesign.php?mna=Bourns&mpn=CAY10-J&pna=Bourns&vrq=1&fmt=zip&o3=0&logo=&lang=en-US&epm=0,https://www.bourns.com/inventory-search-results?PARTS=CAY10-J,https://www.bourns.com/docs/product-datasheets/cay10.pdf?sfvrsn=110df704_10,https://www.bourns.com/products/resistors/chip-resistor-arrays/product/CAY10-J
+CAY10A,2 x 04024 x 0402,"convex
+AEC-Q200",,https://www.bourns.com/images/products/resistive-products/cat10_part.jpg?sfvrsn=478e48f6_2,3 Ω to 1 MΩ,±5 %,"±200 ppm/°C,±500 ppm/°C",0.063 W,"https://www.bourns.com/docs/product-mds/cay10a-j2lf_mds.pdf?sfvrsn=218f48f6_4
+https://www.bourns.com/docs/product-mds/cay10a-j4lf_mds.pdf?sfvrsn=508f48f6_4
+",https://www.bourns.com/resources/design-tools/engineering-files-list?folder=CAY10A-LF,https://bourns.componentsearchengine.com/entry_u_newDesign.php?mna=Bourns&mpn=CAY10A&pna=Bourns&vrq=1&fmt=zip&o3=0&logo=&lang=en-US&epm=0,https://www.bourns.com/inventory-search-results?PARTS=CAY10A,https://www.bourns.com/docs/product-datasheets/cay10a-lf.pdf?sfvrsn=f28c48f6_5,https://www.bourns.com/products/resistors/chip-resistor-arrays/product/CAY10A
+CAY10A-AS,2 x 04024 x 0402,"convex
+AEC-Q200
+sulfur resistant",,https://www.bourns.com/images/products/resistive-products/cay10_part.jpg?sfvrsn=4c8e48f6_6,3 Ω to 1 MΩ,±5 %,"±200 ppm/°C,±500 ppm/°C",0.063 W,"https://www.bourns.com/docs/product-mds/cay10a-j2as_mds.pdf?sfvrsn=5a8f48f6_4
+https://www.bourns.com/docs/product-mds/cay10a-j4as_mds.pdf?sfvrsn=268f48f6_4
+",https://www.bourns.com/resources/design-tools/engineering-files-list?folder=CAY10A-AS,https://bourns.componentsearchengine.com/entry_u_newDesign.php?mna=Bourns&mpn=CAY10A-AS&pna=Bourns&vrq=1&fmt=zip&o3=0&logo=&lang=en-US&epm=0,https://www.bourns.com/inventory-search-results?PARTS=CAY10A-AS,https://www.bourns.com/docs/product-datasheets/cay10a-as.pdf?sfvrsn=c88c48f6_5,https://www.bourns.com/products/resistors/chip-resistor-arrays/product/CAY10A-AS
+CAY16,4 x 0603,convex,,https://www.bourns.com/images/products/resistive-products/cat-103main_part.jpg?sfvrsn=ad3b09f1_4,10 Ω to 1 MΩ,"±1 %, ±5 %",±200 ppm,0.0625 W,"https://www.bourns.com/docs/product-mds/cay16-x2.pdf?sfvrsn=647f75f6_2
+https://www.bourns.com/docs/product-mds/cay16-x4.pdf?sfvrsn=4a7f75f6_2
+https://www.bourns.com/docs/Product-MDS/cay16-f2.pdf?sfvrsn=97868ca8_2
+https://www.bourns.com/docs/product-mds/cay16-f4.pdf?sfvrsn=ca493b13_4
+",https://www.bourns.com/resources/design-tools/engineering-files-list?folder=CATCAY,https://bourns.componentsearchengine.com/entry_u_newDesign.php?mna=Bourns&mpn=CAY16&pna=Bourns&vrq=1&fmt=zip&o3=0&logo=&lang=en-US&epm=0,https://www.bourns.com/inventory-search-results?PARTS=CAY16,https://www.bourns.com/docs/product-datasheets/catcay.pdf?sfvrsn=eae9f7ea_24,https://www.bourns.com/products/resistors/chip-resistor-arrays/product/CAY16
+CAY16A,4 x 0603,"convex
+AEC-Q200",,https://www.bourns.com/images/products/resistive-products/cat10_part.jpg?sfvrsn=478e48f6_2,3 Ω to 1 MΩ,"±1 %,±5 %","±200 ppm/°C,±400 ppm/°C",0.063 W,"https://www.bourns.com/docs/product-mds/cay16a-4lf_mds.pdf?sfvrsn=558f48f6_4
+",https://www.bourns.com/resources/design-tools/engineering-files-list?folder=CAY16A-LF,https://bourns.componentsearchengine.com/entry_u_newDesign.php?mna=Bourns&mpn=CAY16A&pna=Bourns&vrq=1&fmt=zip&o3=0&logo=&lang=en-US&epm=0,https://www.bourns.com/inventory-search-results?PARTS=CAY16A,https://www.bourns.com/docs/product-datasheets/cay16a-lf.pdf?sfvrsn=fc8c48f6_4,https://www.bourns.com/products/resistors/chip-resistor-arrays/product/CAY16A
+CAY16A-AS,4 x 0603,"convex
+AEC-Q200
+sulfur resistant",,https://www.bourns.com/images/products/resistive-products/cay16a_as_part.jpg?sfvrsn=3f164bf6_6,3 Ω to 1 MΩ,±5 %,"±200 ppm/°C,±400 ppm/°C",0.063 W,"https://www.bourns.com/docs/product-mds/cay16a-j4as_mds.pdf?sfvrsn=2b8f48f6_4
+",https://www.bourns.com/resources/design-tools/engineering-files-list?folder=CAY16A-AS,https://bourns.componentsearchengine.com/entry_u_newDesign.php?mna=Bourns&mpn=CAY16A-AS&pna=Bourns&vrq=1&fmt=zip&o3=0&logo=&lang=en-US&epm=0,https://www.bourns.com/inventory-search-results?PARTS=CAY16A-AS,https://www.bourns.com/docs/product-datasheets/cay16a-as.pdf?sfvrsn=cd8c48f6_4,https://www.bourns.com/products/resistors/chip-resistor-arrays/product/CAY16A-AS
