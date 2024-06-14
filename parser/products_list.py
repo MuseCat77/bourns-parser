@@ -3,7 +3,7 @@ import os
 import pandas as pd
 from loguru import logger
 from bs4 import BeautifulSoup
-from table_parsers.universal import parse_table
+from table_parser import parse_table
 
 
 @logger.catch

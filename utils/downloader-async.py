@@ -61,5 +61,7 @@ def download_images(category):
 
 
 if __name__ == '__main__':
-    download_images('thick-film-chip-resistors')
+    category = 'wirewound-resistors'
+    download_images(category)
+    download_datasheets(category)
 
