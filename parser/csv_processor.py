@@ -1,12 +1,15 @@
 import pandas as pd
 import os
 from loguru import logger
-from utils.text_operations import extract_base_datasheet_filename
+from series_parser import wirewound, thin
 
 
 # Объединяет xlsx файлы страниц скачанные с сайта в один большой CSV.
-# Сортирует по серии, температурному режиму и ссылке на даташит.
-def process_csv(xlsx_temp_path, merged_csv_path):
+# Сортирует по part number
+def join_partnumbers(category):
+    xlsx_temp_path = f'../output/{category}/partnumbers/'
+    merged_csv_path = f'../output/{category}/partnumbers.csv'
+
     # Список для хранения данных из всех файлов
     all_data = []
 
@@ -35,23 +38,37 @@ def process_csv(xlsx_temp_path, merged_csv_path):
     logger.success(f"Объединенный и отсортированный файл сохранен в формате CSV: {merged_csv_path}")
 
 
-def create_small_csv(csv_file, base_dir):
-    # Чтение данных из исходного CSV файла
-    df = pd.read_csv(csv_file)
+@logger.catch
+def create_small_csv(products_list, partnumbers_list, category):
+    small_csv_headers = ["Part Number", "Series", "Model", "Category", "Photo", "Resistance", "Tolerance",
+                         "Temperature Coefficient", "Power (Watts)", "Profile/Package Style", "MDS", "Design Files",
+                         "Engineering", "Buy Now", "Datasheet Link", "Product Link"
+                         ]
+    products = pd.read_csv(products_list)
+    partnumbers = pd.read_csv(partnumbers_list)
+    small_csv = pd.DataFrame(columns=small_csv_headers)
 
-    # Пройтись по всем поддиректориям
-    for root, dirs, files in os.walk(base_dir):
-        for directory in dirs:
-            base_filename = extract_base_datasheet_filename(directory)
-            matching_rows = df[df['Datasheet'].str.contains(base_filename, na=False)]
+    for products_index, products_row in products.iterrows():
+        if category == "wirewound-resistors":
+            small_csv = small_csv._append(wirewound.parse_series(small_csv_headers, products_row, partnumbers))
+        elif category == "thin-film-chip-resistors":
+            small_csv = small_csv._append(thin.parse_series(small_csv_headers, products_row, partnumbers))
 
-            if not matching_rows.empty:
-                output_csv = os.path.join(root, directory, f"{directory}.csv")
-                matching_rows.to_csv(output_csv, index=False, sep=";")
-                logger.success(f"[+] Создан маленький csv для директории {directory}: {output_csv}")
+    return small_csv
 
 
-if __name__ == '__main__':
-    # объединяет все партнамберы в один csv
-    category = "chip-resistor-arrays"
-    process_csv(f'../output/{category}/partnumbers/', f'../output/{category}/partnumbers.csv')
+if __name__ == "__main__":
+    category = "thin-film-chip-resistors"
+
+    # объединяет все xlsx партнамбер файлы в один csv
+    # join_partnumbers(category)
+
+    # генерирует маленькие csv для всех категорий
+    small_csv = create_small_csv(
+        f"../output/{category}/{category}.csv",
+        f"../output/{category}/partnumbers.csv",
+        category
+    )
+    output_file = f"../output/{category}/small_csv.csv"
+    small_csv.to_csv(output_file, index=False)
+    logger.success(f"CSV file has been saved to {output_file}")

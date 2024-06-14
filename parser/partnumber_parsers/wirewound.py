@@ -38,8 +38,6 @@ def w_series(partnumber):
 
     resistance = 0
     if "R" not in partnumber[res_start:res_end]:
-        print(partnumber[res_start:res_end - 1])
-        print(partnumber[res_start:res_end])
         resistance = float(partnumber[res_start:res_end - 1] + "0" * int(partnumber[res_end - 1]))
     elif "R" in partnumber[res_start:res_end]:
         resistance = float(partnumber[res_start:res_end].replace("R", "."))
