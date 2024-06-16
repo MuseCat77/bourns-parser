@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 from loguru import logger
-from series_parser import wirewound, thin
+from series_parser import wirewound, thin, thick
 
 
 # Объединяет xlsx файлы страниц скачанные с сайта в один большой CSV.
@@ -53,12 +53,14 @@ def create_small_csv(products_list, partnumbers_list, category):
             small_csv = small_csv._append(wirewound.parse_series(small_csv_headers, products_row, partnumbers))
         elif category == "thin-film-chip-resistors":
             small_csv = small_csv._append(thin.parse_series(small_csv_headers, products_row, partnumbers))
+        elif category == "thick-film-chip-resistors":
+            small_csv = small_csv._append(thick.parse_series(small_csv_headers, products_row, partnumbers))
 
     return small_csv
 
 
 if __name__ == "__main__":
-    category = "thin-film-chip-resistors"
+    category = "thick-film-chip-resistors"
 
     # объединяет все xlsx партнамбер файлы в один csv
     # join_partnumbers(category)
