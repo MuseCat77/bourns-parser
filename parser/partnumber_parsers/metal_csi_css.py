@@ -11,69 +11,7 @@ def parse_tolerance(p):
 
 
 def parse_tcr(p):
-    patterns = {
-        "CSI2H-2512R-L300": "±150 PPM/°C",
-        "CSI2H-2512R-L500": "±100 PPM/°C",
-        "CSI2H-2512R-1L00": "±75 PPM/°C",
-        "CSI2H-2512K-1L80": "±75 PPM/°C",
-        "CSI2H-2512K-2L00": "±75 PPM/°C",
-        "CSI2H-2512K-2L30": "±75 PPM/°C",
-        "CSI2H-2512K-3L00": "±75 PPM/°C",
-        "CSI2H-2512K-3L50": "±75 PPM/°C",
-        "CSI2H-3920R-L200": "±100 PPM/°C",
-        "CSI2H-3920R-L300": "±100 PPM/°C",
-        "CSI2H-3920R-L400": "±100 PPM/°C",
-        "CSI2H-3920R-L500": "±100 PPM/°C",
-        "CSI2H-3920R-L700": "±100 PPM/°C",
-        "CSI2H-3920K-1L00": "±100 PPM/°C",
-        "CSI2H-3920K-2L00": "±75 PPM/°C",
-        "CSI2H-3920K-2L50": "±75 PPM/°C",
-        "CSI2H-3920K-3L00": "±75 PPM/°C",
-        "CSI2H-5930R-L200": "±150 PPM/°C",
-        "CSI2H-5930R-L300": "±150 PPM/°C",
-        "CSI2H-5930R-L500": "±100 PPM/°C",
-        "CSI2H-5930K-1L00": "±75 PPM/°C",
-        "CSI2H-5930K-2L00": "±75 PPM/°C",
-        "CSS2H-5930R-L200": "±150 PPM/°C",
-        "CSS2H-5930R-L300": "±150 PPM/°C",
-        "CSS2H-5930R-L500": "±100 PPM/°C",
-        "CSS2H-5930K-1L00": "±75 PPM/°C",
-        "CSS2H-5930K-2L00": "±75 PPM/°C",
-        "CSS2H-5930K-3L00": "±75 PPM/°C",
-        "CSS4J-4026R-L200": "±150 PPM/°C",
-        "CSS4J-4026R-L300": "±100 PPM/°C",
-        "CSS4J-4026R-L500": "±100 PPM/°C",
-        "CSS4J-4026R-1L00": "±75 PPM/°C",
-        "CSS4J-4026K-2L00": "±75 PPM/°C",
-        "CSS4J-4026K-3L00": "±75 PPM/°C",
-        "CSS4J-4026K-5L00": "±75 PPM/°C",
-        "CSS2H-2512R-L300": "±150 PPM/°C",
-        "CSS2H-2512R-L500": "±100 PPM/°C",
-        "CSS2H-2512R-1L00": "±75 PPM/°C",
-        "CSS2H-2512K-1L80": "±75 PPM/°C",
-        "CSS2H-2512K-2L00": "±75 PPM/°C",
-        "CSS2H-2512K-2L30": "±75 PPM/°C",
-        "CSS2H-2512K-3L00": "±75 PPM/°C",
-        "CSS2H-2512K-3L50": "±75 PPM/°C",
-        "CSS2H-2512K-4L00": "±75 PPM/°C",
-        "CSS2H-2512K-5L00": "±75 PPM/°C",
-        "CSS2H-3920R-L200": "±100 PPM/°C",
-        "CSS2H-3920R-L300": "±100 PPM/°C",
-        "CSS2H-3920R-L500": "±100 PPM/°C",
-        "CSS2H-3920R-L700": "±100 PPM/°C",
-        "CSS2H-3920R-1L00": "±100 PPM/°C",
-        "CSS2H-3920K-2L00": "±75 PPM/°C",
-        "CSS2H-3920K-2L50": "±75 PPM/°C",
-        "CSS2H-3920K-3L00": "±75 PPM/°C",
-        "CSS2H-3920K-4L00": "±75 PPM/°C",
-        "CSS2H-3920K-5L00": "±75 PPM/°C"
-    }
-
-    for pattern in patterns:
-        if p.startswith(pattern):
-            return patterns[pattern]
-
-    return "Unknown"
+    return "±50 PPM/°C"
 
 
 def parse_power(p):

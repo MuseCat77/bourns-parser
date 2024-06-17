@@ -1,4 +1,4 @@
-import parser.series_parser.metal_csi_css as metal_csi_css
+import parser.partnumber_parsers.metal_csi_css as metal_csi_css
 
 
 def parse_tcr(p):

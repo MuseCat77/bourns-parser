@@ -2,7 +2,7 @@ import pandas as pd
 import os
 import concurrent.futures
 from loguru import logger
-from series_parser import wirewound, thin, thick, metal
+from series_parser import wirewound, thin, thick, metal, high, array
 
 
 # Объединяет xlsx файлы страниц скачанные с сайта в один большой CSV.
@@ -58,6 +58,10 @@ def create_small_csv(products_list, partnumbers_list, category):
             small_csv = small_csv._append(thick.parse_series(small_csv_headers, products_row, partnumbers))
         elif category == "metal-strip-chip-resistors":
             small_csv = small_csv._append(metal.parse_series(small_csv_headers, products_row, partnumbers))
+        elif category == "high-power-shunts":
+            small_csv = small_csv._append(high.parse_series(small_csv_headers, products_row, partnumbers))
+        elif category == "chip-resistor-arrays":
+            small_csv = small_csv._append(array.parse_series(small_csv_headers, products_row, partnumbers))
 
     return small_csv
 
@@ -86,7 +90,7 @@ def create_small_csv_multithread(products_list, partnumbers_list, category):
 
 
 if __name__ == "__main__":
-    category = "metal-strip-chip-resistors"
+    category = "high-power-shunts"
 
     # объединяет все xlsx партнамбер файлы в один csv
     # join_partnumbers(category)
