@@ -1,5 +1,4 @@
 import pandas as pd
-import itertools
 from loguru import logger
 from parser.partnumber_parsers.thick import *
 
@@ -16,15 +15,14 @@ def parse_series(headers, products_row, partnumbers):
 
         # если в продукте есть "-", например 'CR0201A-AS'
         if "-" in product:
-            print("---------------------------------ПРОДУКТ С ХВОСТОМ")
             # если партнамбер начинается с части продукта до прочерка:
             if partnum.startswith(product.split("-")[0]) and product.split("-")[1] in partnum[-2:]:
                 # если хвост после прочерка в продукте совпадает с концом партнамбера:
                 if partnum[len(product.split("-")[0])] not in ["A", "Q"]:
-                    print("ПРОДУКТ С ХВОСТОМ", product, partnum)
+                    print(product, partnum, "ПРОДУКТ С ХВОСТОМ")
                     resistance, tolerance, temperature, power, packaging = get_specs(partnum)
                 elif partnum[len(product.split("-")[0])] in ["F", "J", "D"]:
-                    print("продукт с дополнительной фичей, С ХВОСТОМ", product, partnum)
+                    print(product, partnum, "продукт с дополнительной фичей, С ХВОСТОМ")
                     resistance, tolerance, temperature, power, packaging = get_specs(partnum)
                 else:
                     continue
@@ -35,15 +33,14 @@ def parse_series(headers, products_row, partnumbers):
         # 'CRS1206AFX-1002ELF' начинается с 'CRS1206A'
         # также будет справедливо для пары 'CRS1206AFX-1002ELF' и 'CRS1206', это следует отсеить дополнительным условием
         elif partnum.startswith(product):
-            print("-------------------------------продукт без хвоста")
             # следующий после названия продукта в партнамбере символ должен быть прочерк,
             # если буква A или Q - то это не наш вариант
             # потому что 'CRS1206AFX-1002ELF' не является партнамбером для продукта 'CRS1206', а для продукта 'CRS1206A'
             if partnum[len(product)] not in ["A", "Q"]:
-                print("продукт без хвоста", product, partnum)
+                print(product, partnum, "продукт без хвоста")
                 resistance, tolerance, temperature, power, packaging = get_specs(partnum)
             elif partnum[len(product)] in ["F", "J", "D"]:
-                print("продукт с дополнительной фичей, без хвоста", product, partnum)
+                print(product, partnum, "продукт с дополнительной фичей, без хвоста")
                 resistance, tolerance, temperature, power, packaging = get_specs(partnum)
             # в остальных случаях идем на следующую итерацию
             else:

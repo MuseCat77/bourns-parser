@@ -1,7 +1,8 @@
 import pandas as pd
 import os
+import concurrent.futures
 from loguru import logger
-from series_parser import wirewound, thin, thick
+from series_parser import wirewound, thin, thick, metal
 
 
 # Объединяет xlsx файлы страниц скачанные с сайта в один большой CSV.
@@ -55,12 +56,37 @@ def create_small_csv(products_list, partnumbers_list, category):
             small_csv = small_csv._append(thin.parse_series(small_csv_headers, products_row, partnumbers))
         elif category == "thick-film-chip-resistors":
             small_csv = small_csv._append(thick.parse_series(small_csv_headers, products_row, partnumbers))
+        elif category == "metal-strip-chip-resistors":
+            small_csv = small_csv._append(metal.parse_series(small_csv_headers, products_row, partnumbers))
+
+    return small_csv
+
+@logger.catch
+def create_small_csv_multithread(products_list, partnumbers_list, category):
+    small_csv_headers = ["Part Number", "Series", "Model", "Category", "Photo", "Resistance", "Tolerance",
+                         "Temperature Coefficient", "Power (Watts)", "Profile/Package Style", "MDS", "Design Files",
+                         "Engineering", "Buy Now", "Datasheet Link", "Product Link"
+                         ]
+    products = pd.read_csv(products_list)
+    partnumbers = pd.read_csv(partnumbers_list)
+    small_csv = pd.DataFrame(columns=small_csv_headers)
+
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        future_to_row = {executor.submit(thick.parse_series, small_csv_headers, row, partnumbers): row for
+                         index, row in products.iterrows()}
+
+        for future in concurrent.futures.as_completed(future_to_row):
+            try:
+                result = future.result()
+                small_csv = pd.concat([small_csv, result], ignore_index=True)
+            except Exception as exc:
+                logger.error(f"Generated an exception: {exc}")
 
     return small_csv
 
 
 if __name__ == "__main__":
-    category = "thick-film-chip-resistors"
+    category = "metal-strip-chip-resistors"
 
     # объединяет все xlsx партнамбер файлы в один csv
     # join_partnumbers(category)
@@ -71,6 +97,15 @@ if __name__ == "__main__":
         f"../output/{category}/partnumbers.csv",
         category
     )
-    output_file = f"../output/{category}/small_csv.csv"
-    small_csv.to_csv(output_file, index=False)
+    # small_csv = create_small_csv_multithread(
+    #     f"../output/{category}/{category}.csv",
+    #     f"../output/{category}/partnumbers.csv",
+    #     category
+    # )
+    try:
+        small_csv = small_csv.sort_values(by="Part Number")
+    except Exception:
+        pass
+    output_file = f"../output/{category}/merged.csv"
+    small_csv.to_csv(output_file, index=False, sep=";")
     logger.success(f"CSV file has been saved to {output_file}")

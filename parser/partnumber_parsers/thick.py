@@ -3,6 +3,10 @@ def parse_tcr(p):
         return "±200 PPM/°C"
     elif "X" in p:
         return "±200 PPM/°C"
+    elif "X" in p:
+        return "±200 PPM/°C"
+    elif "FV" in p or "JV" in p or "DV" in p:
+        return "±300 PPM/°C"
     elif "/" in p:
         return "0 PPM/°C"
     elif "Z" in p:
@@ -144,7 +148,7 @@ def parse_packaging(partnumber):
         "0402": "10,000"
     }
     for key in quantities:
-        if key in partnumber:
+        if key in partnumber[:7]:
             return quantities[key] + base_text
 
     return "Unknown"
